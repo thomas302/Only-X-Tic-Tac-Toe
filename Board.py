@@ -1,4 +1,4 @@
-class Board(self):
+class Board:
   #b represents a boardthrought the script
   boards = [(1,[]), (2,[]), (3,[])]
   deadBoards = []
@@ -28,7 +28,7 @@ class Board(self):
         self.deadBoards.append(b)
       else:
         pass
-class Turn(self):
+class Turn:
   def turnTextBased(self):
     b1 = eval(input("Choose Board"))
     x1 = eval(input("Choose Column"))
