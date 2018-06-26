@@ -1,7 +1,10 @@
 class Board:
   #b represents a boardthrought the script
+  # the boards list is used as a reference for which board an x is placed on
   boards = [(1,[]), (2,[]), (3,[])]
+  #Dead boards contains the reference number of all boards which have been eliminated
   deadBoards = []
+  #appends value to the correct board 
   def placeX(self, b, x, y):
     coordinate = (x , y)
     boardN = self.boards[b-1][1]
@@ -15,6 +18,8 @@ class Board:
       boardN.append(coordinate)
       print("appended")
       return True
+  #main issue, always returns None
+  #desinged to search list for dead boards, and add them to the dead board list
   def isBoardDead(self, b):
     boardN = self.boards[b-1][1]
     row1 = [((1,1),(2,1),(3,1))]
