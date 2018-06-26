@@ -22,6 +22,7 @@ class Board:
   #desinged to search list for dead boards, and add them to the dead board list
   def isBoardDead(self, b):
     boardN = self.boards[b-1][1]
+    #coordinate positions of all three in a row combonitions
     row1 = [((1,1),(2,1),(3,1))]
     row2 = [((1,2),(2,2),(3,2))]
     row3 = [((1,3),(2,3),(3,3))]
@@ -32,6 +33,7 @@ class Board:
     lDiagonal = [((3,3),(2,2),(1,1))]
     deadList = []
     deadList.extend((row1, row2, row3, col1, col2, col3, rDiagonal, lDiagonal))
+    #this part is suppossed append to the list but always returns None
     for i in range(0,7):
       if set(tuple(deadList[0][i])).issubset(tuple(boardN)):
         self.deadBoards.append(b)
@@ -39,7 +41,9 @@ class Board:
         return x
       else:
         return None
+#game class contains the variety of iterations of the game and will eventually contain functions for the gui to call
 class Game:
+  #text based turns
   def gameTextBased(self):
     turnNumber = 0
     b = Board()
@@ -50,6 +54,7 @@ class Game:
       b.placeX(int(b1), int(x1), int(y1))
       print(b.isBoardDead(int(b1)))
       turnNumber += 1
+    #turn number records whether or not P1 or P2 wins
     return turnNumber
       
     
