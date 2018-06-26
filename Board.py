@@ -28,6 +28,7 @@ class Board:
     deadList = []
     deadList.extend((row1, row2, row3, col1, col2, col3, rDiagonal, lDiagonal))
     for i in range(8):
+      # this command should search for all of the possible 3 in a row combinations in a board
       if deadList[i].issubset(set(boardN)):
         self.deadBoards.append(b)
         print("Board "+str(b)+" is dead")
